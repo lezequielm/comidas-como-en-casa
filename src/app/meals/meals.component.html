@@ -1,0 +1,23 @@
+<div>
+  <a mat-raised-button color="primary" routerLink="/meals/add" routerLinkActive="active">+</a>
+  <mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+      <mat-cell *matCellDef="let meal"> {{meal.id}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+      <mat-cell *matCellDef="let meal"> {{meal.name}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="description">
+      <mat-header-cell *matHeaderCellDef> Descripción </mat-header-cell>
+      <mat-cell *matCellDef="let meal"> {{meal.description}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="enabled">
+      <mat-header-cell *matHeaderCellDef> Habilitado </mat-header-cell>
+      <mat-cell *matCellDef="let meal"> <mat-checkbox [checked]="meal.enabled"></mat-checkbox> </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>
